@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Screen Recorder</title>
+  </head>
+  <body>
+    <h1>Screen Recorder</h1>
+    <button id="record">Start Recording</button>
+    <button id="stop">Stop Recording</button>
+    <br>
+    <br>
+    <img id="screen-recording" src="{{ url_for('video_feed') }}">
+    <script>
+        var recordBtn = document.getElementById("record");
+        var stopBtn = document.getElementById("stop");
+        var imgPlayer = document.getElementById("screen-recording");
+        var recording = false;
+
+        recordBtn.addEventListener("click", function(){
+            if(!recording){
+                recording = true;
+                imgPlayer.style.display = "block";
+            }
+        });
+
+        stopBtn.addEventListener("click", function(){
+            if(recording){
+                recording = false;
+                imgPlayer.style.display = "none";
+            }
+        });
+    </script>
+  </body>
+</html>
